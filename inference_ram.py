@@ -23,7 +23,7 @@ parser.add_argument('--image',
 parser.add_argument('--pretrained',
                     metavar='DIR',
                     help='path to pretrained model',
-                    default='pretrained/tag2text_swin_14m.pth')
+                    default='/root/Models/recognize-anything/ram_swin_large_14m.pth')
 parser.add_argument('--image-size',
                     default=384,
                     type=int,
@@ -35,7 +35,7 @@ if __name__ == "__main__":
 
     args = parser.parse_args()
 
-    device = torch.device('cuda' if torch.cuda.is_available() else 'cpu')
+    device = torch.device('cuda:0' if torch.cuda.is_available() else 'cpu')
 
     transform = get_transform(image_size=args.image_size)
 
